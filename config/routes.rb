@@ -1,4 +1,20 @@
 TestApp::Application.routes.draw do
+  get "users/home"
+
+  get "user/home"
+
+  devise_for :users
+  root :to => "users#home"
+  
+  #Route for Temperature tab.
+  match 'temperature/show' => 'temperatures#show', :as => :show_temp
+  
+  #Route for OPEN FLASH CHART function matching
+  match 'temperature/graph_code' => 'temperatures#graph_code'
+  
+  #Route for Reports.
+  match 'reports/show' => 'reports#show',:as => :show_reports
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

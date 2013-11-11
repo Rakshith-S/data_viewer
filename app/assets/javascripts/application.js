@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
+$(function() {
+  var faye = new Faye.Client('http://16.213.24.99:9292/faye');
+});
+
+$(function() {
+  var faye = new Faye.Client('http://16.213.24.99:9292/faye');
+  faye.subscribe('/messages/new', function (data) {
+    alert(data);
+  });
+});
